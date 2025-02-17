@@ -8,10 +8,10 @@ using Microsoft.Azure.WebJobs.Host;
 
 namespace Andrew.DemoApp.Fa
 {
-    public static class Function1
+    public class AppointmentsHandler
     {
-        [FunctionName("Function1")]
-        public static async Task<HttpResponseMessage> Run(
+        [FunctionName("AppointmentsHandler")]
+        public async Task<HttpResponseMessage> Run(
             [HttpTrigger(
                 AuthorizationLevel.Function,
                 "get",
