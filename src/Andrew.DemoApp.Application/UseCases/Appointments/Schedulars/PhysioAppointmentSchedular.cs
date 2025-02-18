@@ -7,16 +7,19 @@ using System.Threading.Tasks;
 
 namespace Andrew.DemoApp.Application.UseCases.Appointments.Schedulars
 {
-    public class PhysioAppointmentSchedular : IAppointmentSchedular
+    public class PhysioAppointmentSchedular() : IAppointmentSchedular
     {
+        //private readonly ILogger<PhysioAppointmentSchedular> _logger = logger;
         public bool IsMatch(string appointmentType)
         {
-            throw new NotImplementedException();
+            return appointmentType == "Physio";
         }
 
-        Task IAppointmentSchedular.ProcessAsync<TRequest>(TRequest request, CancellationToken cancellationToken)
+        Task<NotifyAppointmentsResponse> IAppointmentSchedular.ProcessAsync<TRequest>(TRequest request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            //_logger.LogInformation("Processing Physio Appointment");
+
+            return Task.FromResult(new NotifyAppointmentsResponse());
         }
     }
 }

@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Andrew.DemoApp.Application.UseCases.Appointments
 {
-    public class NotifyAppointmentsRequest(HttpRequestMessage request) : BaseRequest(request), IAppointmentNotification, IRequest
+    public class NotifyAppointmentsRequest(HttpRequestMessage request) : BaseRequest(request), IAppointmentNotification, IRequest<NotifyAppointmentsResponse>
     {
-        public string AppointmentType => "";
+        public string AppointmentType => "GP";
 
         public string RequestType => "";
     }

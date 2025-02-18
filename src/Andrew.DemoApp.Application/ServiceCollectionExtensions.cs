@@ -5,12 +5,7 @@ using Andrew.DemoApp.Application.UseCases.Appointments.Schedulars;
 using Andrew.DemoApp.Application.UseCases.Appointments.Schedulars.Abstractions;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Andrew.DemoApp.Application
 {
@@ -38,7 +33,6 @@ namespace Andrew.DemoApp.Application
             services.AddMediatR(config =>
                     config.RegisterServicesFromAssembly(typeof(NotifyAppointmentsRequestHandler).GetTypeInfo().Assembly)
                     );
-
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ExceptionHandlingBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehaviour<,>));

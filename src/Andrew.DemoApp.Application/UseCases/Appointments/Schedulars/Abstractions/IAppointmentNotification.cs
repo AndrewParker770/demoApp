@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Andrew.DemoApp.Application.UseCases.Appointments.Schedulars.Abstractions
 {
-    interface IAppointmentNotification
+    public interface IAppointmentNotification
     {
         public string AppointmentType { get;  }
 

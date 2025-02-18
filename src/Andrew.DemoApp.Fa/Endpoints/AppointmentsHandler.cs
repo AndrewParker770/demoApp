@@ -7,6 +7,8 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using Andrew.DemoApp.Application.UseCases.Appointments;
 using MediatR;
+using Serilog.Core;
+using Microsoft.Extensions.Logging;
 
 namespace Andrew.DemoApp.Fa
 {

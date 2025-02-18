@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace Andrew.DemoApp.Application.Middlewares.LoggingBehaviour
 {
-    internal class LoggingBehaviour<TRequest, TResponse>
+    internal class LoggingBehaviour<TRequest, TResponse>()
         : IPipelineBehavior<TRequest, TResponse>
     {
+        //private readonly ILogger<LoggingBehaviour<TRequest, TResponse>> _logger = logger;
         public async Task<TResponse> Handle(
             TRequest request,
             RequestHandlerDelegate<TResponse> next,
@@ -17,6 +18,8 @@ namespace Andrew.DemoApp.Application.Middlewares.LoggingBehaviour
         {
             try
             {
+                var requestName = request?.GetType().Name;
+
                 return await next();
             }
             catch
