@@ -1,0 +1,31 @@
+parameters:
+  - name: serviceName
+    type: string
+  - name: applicationResourceGroupName
+    type: string
+  - name: environment
+    type: string
+  - name: buildConfiguration
+    type: string
+    default: Release
+
+
+stages:
+  - template: service-ci.yaml
+    parameters:
+      stageName: CI
+      mainJobName: MainJob
+      serviceName: ${{ parameters.serviceName }}
+      buildConfiguration: ${{ parameters.buildConfiguration }}
+      applicationResourceGroupName: ${{ parameters.applicationResourceGroupName }}
+      environmentName: ${{ parameters.environment }}
+
+  - template: service-cd.yaml
+    parameters:
+      stageName: CD_${{ parameters.environment }}
+      dependsOn:
+      - CI
+      serviceName: ${{ parameters.serviceName }}
+      environmentName: ${{ parameters.environment }}
+      applicationResourceGroupName: ${{ parameters.applicationResourceGroupName }}
+      condition: succeeded()
