@@ -1,0 +1,33 @@
+parameters:
+  - name: stageName
+    type: string
+  - name: mainJobName
+    type: string
+  - name: serviceName
+    type: string
+  - name: buildConfiguration
+    type: string
+  - name: applicationResourceGroupName
+    type: string
+  - name: environmentName
+    type: string
+
+stages:
+- stage: ${{ parameters.stageName }}
+  displayName: ${{ parameters.stageName }}
+  variables:
+    - template: ../../variables/${{ parameters.environmentName }}-variable-groups.yaml
+  jobs:
+  - job: ${{ parameters.mainJobName }}
+    displayName: Validate ${{ parameters.serviceName }}
+    steps:
+    - checkout: self
+      persistCredentials: true
+      fetchDepth: 0
+
+    - task: gitversion/setup@1.1.1
+      displayName: Install GitVersion
+      inputs:
+        version: '5.x'
+        updateAssemby: 
+

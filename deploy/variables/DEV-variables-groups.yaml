@@ -1,0 +1,4 @@
+variables:
+  environment: dev
+  
+  # other environment related variables can be stored here
