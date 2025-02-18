@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Providers\Email\" />
+    <Folder Include="Providers\CE\" />
+    <Folder Include="Providers\ServiceBus\" />
+  </ItemGroup>
+
 </Project>
