@@ -17,7 +17,7 @@ namespace Andrew.Demo.Fa
             var config = builder.GetContext().Configuration;
 
             builder.Services.AddApplication();
-            //builder.Services.AddInfrastructure();
+            builder.Services.AddInfrastructure();
         }
 
         public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)

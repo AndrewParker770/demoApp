@@ -22,6 +22,8 @@ namespace Andrew.DemoApp.Fa
                 Route = null)]
             HttpRequestMessage req)
         {
+
+
             var request = new NotifyAppointmentsRequest(req);
 
             return await mediator.Send(request);
