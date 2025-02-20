@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Andrew.DemoApp.Application"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Andrew.DemoApp.Infrastructure", "..\Andrew.DemoApp.Infrastructure\Andrew.DemoApp.Infrastructure.csproj", "{D9A0ED16-7FC8-452E-BF62-FEC2641C39C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Andrew.DemoApp.Domain", "..\Andrew.DemoApp.Domain\Andrew.DemoApp.Domain.csproj", "{93EDD319-881F-43FD-BBFA-113E75239963}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,10 @@ Global
 		{D9A0ED16-7FC8-452E-BF62-FEC2641C39C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9A0ED16-7FC8-452E-BF62-FEC2641C39C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9A0ED16-7FC8-452E-BF62-FEC2641C39C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93EDD319-881F-43FD-BBFA-113E75239963}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93EDD319-881F-43FD-BBFA-113E75239963}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93EDD319-881F-43FD-BBFA-113E75239963}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93EDD319-881F-43FD-BBFA-113E75239963}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
