@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace Andrew.DemoApp.Application.UseCases.Appointments.Patients
 {
-    public class ChildPatient() : IPatient
+    public class ChildPatient() : VulnerablePatient
     {
-        public string ScheduleAppointment(string appointmentType)
+        public override string ScheduleAppointment(string appointmentType)
         {
             return $"Booking {appointmentType} appointment for child patient...";
         }
+
     }
 }

@@ -17,8 +17,12 @@ namespace Andrew.DemoApp.Application.UseCases.Appointments.Schedulars
             var appointmentsRequest = request as NotifyAppointmentsRequest;
 
             var patientObj = PatientCatagory.getPatientObj(appointmentsRequest.Patient);
-
             var result = patientObj.ScheduleAppointment(appointmentsRequest.AppointmentType);
+
+            /*
+                GP only bevhaviour using specific patient requirements 
+            */
+
             var response = new NotifyAppointmentsResponse { resultString = result };
 
             return Task.FromResult(response);
