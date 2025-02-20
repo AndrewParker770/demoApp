@@ -1,3 +1,5 @@
+using Andrew.DemoApp.Application;
+using Andrew.DemoApp.Infrastructure;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Configuration;
@@ -13,6 +15,9 @@ namespace Andrew.Demo.Fa
         public override void Configure(IFunctionsHostBuilder builder)
         {
             var config = builder.GetContext().Configuration;
+
+            builder.Services.AddApplication();
+            builder.Services.AddInfrastructure();
         }
 
         public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)
