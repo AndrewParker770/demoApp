@@ -18,7 +18,8 @@ namespace Andrew.DemoApp.Application.UseCases.Appointments.Schedulars
 
             var patientObj = PatientCatagory.getPatientObj(appointmentsRequest.Patient);
 
-            var response = new NotifyAppointmentsResponse { resultString = patientObj.ScheduleAppointment(appointmentsRequest.AppointmentType) };
+            var result = patientObj.ScheduleAppointment(appointmentsRequest.AppointmentType);
+            var response = new NotifyAppointmentsResponse { resultString = result };
 
             return Task.FromResult(response);
         }
