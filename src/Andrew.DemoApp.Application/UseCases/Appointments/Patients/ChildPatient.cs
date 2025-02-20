@@ -10,9 +10,9 @@ namespace Andrew.DemoApp.Application.UseCases.Appointments.Patients
 {
     public class ChildPatient() : IPatient
     {
-        public string scheduleAppointment()
+        public string ScheduleAppointment(string appointmentType)
         {
-            return "Booking appointment for child patient...";
+            return $"Booking {appointmentType} appointment for child patient...";
         }
     }
 }

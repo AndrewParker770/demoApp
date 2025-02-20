@@ -8,6 +8,6 @@ namespace Andrew.DemoApp.Application.UseCases.Appointments.Patients.Abstractions
 {
     public interface IPatient
     {
-        public string scheduleAppointment();
+        public string ScheduleAppointment(string appointmentType);
     }
 }

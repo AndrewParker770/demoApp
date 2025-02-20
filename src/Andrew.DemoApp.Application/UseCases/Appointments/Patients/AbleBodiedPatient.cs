@@ -5,9 +5,9 @@ namespace Andrew.DemoApp.Application.UseCases.Appointments.Patients
 {
     public class AbleBodiedPatient() : IPatient
     {
-        public string scheduleAppointment()
+        public string ScheduleAppointment(string appointmentType)
         {
-            return "Booking appointment for able bodied patient...";
+            return $"Booking {appointmentType} appointment for able bodied patient...";
         }
     }
 }

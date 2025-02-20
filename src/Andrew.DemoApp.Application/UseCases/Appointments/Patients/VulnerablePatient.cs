@@ -10,9 +10,9 @@ namespace Andrew.DemoApp.Application.UseCases.Appointments.Patients
 {
     public class VulnerablePatient() : IPatient
     {
-        public string scheduleAppointment()
+        public string ScheduleAppointment(string appointmentType)
         {
-            return "Booking appointment for vulnerable patient...";
+            return $"Booking {appointmentType} appointment for vulnerable patient...";
         }
     }
 }

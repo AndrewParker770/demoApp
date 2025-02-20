@@ -10,5 +10,6 @@ namespace Andrew.DemoApp.Application.UseCases.Appointments
 {
     public class NotifyAppointmentsResponse
     {
+        public string resultString;
     }
 }

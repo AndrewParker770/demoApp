@@ -1,4 +1,5 @@
-﻿using Andrew.DemoApp.Application.UseCases.Appointments.Patients.SmartEnums;
+﻿using Andrew.DemoApp.Application.Contracts.Appointments;
+using Andrew.DemoApp.Application.UseCases.Appointments.Patients.SmartEnums;
 using Andrew.DemoApp.Application.UseCases.Appointments.Schedulars.Abstractions;
 using Ardalis.SmartEnum;
 using Ardalis.SmartEnum.JsonNet;
@@ -12,13 +13,13 @@ using System.Threading.Tasks;
 
 namespace Andrew.DemoApp.Application.UseCases.Appointments
 {
-    public class NotifyAppointmentsRequest(HttpRequestMessage request) : BaseRequest(request), IAppointmentNotification, IRequest<NotifyAppointmentsResponse>
+    public class NotifyAppointmentsRequest(Appointment appointment) : IAppointmentNotification, IRequest<NotifyAppointmentsResponse>
     {
-        public string AppointmentType => "GP";
 
-        public string RequestType => "";
+        public string AppointmentType => appointment.AppointmentType;
 
-        [JsonConverter(typeof(SmartEnumNameConverter<PatientCatagory, int>))]
-        public SmartEnum<PatientCatagory> Patient;
+        public string RequestType => appointment.RequestType;
+
+        public SmartEnum<PatientCatagory> Patient => appointment.Patient;
     }
 }

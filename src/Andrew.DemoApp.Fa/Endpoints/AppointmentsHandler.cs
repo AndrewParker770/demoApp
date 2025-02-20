@@ -9,6 +9,9 @@ using Andrew.DemoApp.Application.UseCases.Appointments;
 using MediatR;
 using Serilog.Core;
 using Microsoft.Extensions.Logging;
+using System.Text.Json.Nodes;
+using Newtonsoft.Json;
+using Andrew.DemoApp.Application.Contracts.Appointments;
 
 namespace Andrew.DemoApp.Fa
 {
@@ -22,7 +25,10 @@ namespace Andrew.DemoApp.Fa
                 Route = null)]
             HttpRequestMessage req)
         {
-            var request = new NotifyAppointmentsRequest(req);
+            var requestString = await req.Content.ReadAsStringAsync();
+            var appointment = JsonConvert.DeserializeObject<Appointment>(requestString);
+
+            var request = new NotifyAppointmentsRequest(appointment);
 
             return await mediator.Send(request);
         }

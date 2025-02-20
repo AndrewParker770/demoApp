@@ -1,4 +1,5 @@
-﻿using Andrew.DemoApp.Application.UseCases.Appointments.Schedulars.Abstractions;
+﻿using Andrew.DemoApp.Application.UseCases.Appointments.Patients.SmartEnums;
+using Andrew.DemoApp.Application.UseCases.Appointments.Schedulars.Abstractions;
 using Microsoft.Extensions.Logging;
 
 namespace Andrew.DemoApp.Application.UseCases.Appointments.Schedulars
@@ -13,9 +14,13 @@ namespace Andrew.DemoApp.Application.UseCases.Appointments.Schedulars
 
         Task<NotifyAppointmentsResponse> IAppointmentSchedular.ProcessAsync<TRequest>(TRequest request, CancellationToken cancellationToken)
         {
-            _logger.LogInformation("Processing GP Appointment");
+            var appointmentsRequest = request as NotifyAppointmentsRequest;
 
-            return Task.FromResult(new NotifyAppointmentsResponse());
+            var patientObj = PatientCatagory.getPatientObj(appointmentsRequest.Patient);
+
+            var response = new NotifyAppointmentsResponse { resultString = patientObj.ScheduleAppointment(appointmentsRequest.AppointmentType) };
+
+            return Task.FromResult(response);
         }
     }
 }
